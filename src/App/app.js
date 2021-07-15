@@ -1,11 +1,26 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Roster from './Roster/roster';
 
-function App() {
-    return (
-        <div className="App">
-            <h1>Church Membership App</h1>
-        </div>
-    );
+
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            users: ''
+        }
+    }
+
+
+    render() {
+        return (
+            <div className="App">
+                <Switch>
+                    <Route path="/" exact component={Roster} />
+                </Switch>
+            </div>
+        )
+    }
 }
 
-export default App;
+export default App
