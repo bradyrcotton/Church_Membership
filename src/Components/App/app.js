@@ -31,7 +31,7 @@ const App= () => {
         zipcode: '',
         cellPhone: '',
         homePhone: ''
-    })
+    });
 
     const [editContactId, setEditContactId] = useState(null);
 
@@ -45,7 +45,7 @@ const App= () => {
         newFormData[fieldName] = fieldValue;
 
         setAddFormData(newFormData);
-    }
+    };
 
     const handleEditFormChange = (event) => {
         event.preventDefault();
@@ -57,7 +57,7 @@ const App= () => {
         newFormData[fieldName] = fieldValue;
 
         setEditFormData(newFormData);
-    }
+    };
 
     const handleAddFormSubmit = (event) => {
         event.preventDefault();
@@ -77,6 +77,32 @@ const App= () => {
 
         const newContacts = [...contacts, newContact];
         setContacts(newContacts);
+    };
+
+    const handleEditFormSubmit = (event) => {
+        event.preventDefault();
+
+        const editedContact ={
+            id: editContactId,
+            member: editFormData.member,
+            status: editFormData.status,
+            mailingAddress: editFormData.mailingAddress,
+            physicalAddress: editFormData.physicalAddress,
+            city: editFormData.city,
+            state: editFormData.state,
+            zipcode: editFormData.zipcode,
+            cellPhone: editFormData.cellPhone,
+            homePhone: editFormData.homePhone
+        };
+
+        const newContacts = [ ...contacts ];
+
+        const index = contacts.findIndex((contact) => contact.id === editContactId);
+
+        newContacts[index] = editedContact;
+
+        setContacts(newContacts);
+        setEditContactId(null);
     };
 
     const handleEditClick = (event, contact) => {
@@ -100,7 +126,7 @@ const App= () => {
 
     return (
         <div className="roster-container">
-            <form>
+            <form onSubmit={handleEditFormSubmit}>
                 <table>
                     <thead>
                         <tr>
