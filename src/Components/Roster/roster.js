@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import { nanoid } from 'nanoid';
 import './roster.css'
 import data from '../mock-data.json';
 
@@ -6,6 +7,49 @@ import data from '../mock-data.json';
 const Roster = () => {
 
     const [contacts, setContacts] = useState(data);
+    const [addFormData, setAddFormData] = useState({
+        member: '',
+        status: '',
+        mailingAddress: '',
+        physicalAddress: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        cellPhone: '',
+        homePhone: ''
+    })
+
+    const handleAddFormChange = (event) => {
+        event.preventDefault();
+
+        const fieldName = event.target.getAttribute('name')
+        const fieldValue = event.target.value;
+
+        const newFormData = { ...addFormData};
+        newFormData[fieldName] = fieldValue;
+
+        setAddFormData(newFormData);
+    }
+
+    const handleAddFormSubmit = (event) => {
+        event.preventDefault();
+
+        const newContact = {
+            id: nanoid(),
+            member: addFormData.member,
+            status: addFormData.status,
+            mailingAddress: addFormData.mailingAddress,
+            physicalAddress: addFormData.physicalAddress,
+            city: addFormData.city,
+            state: addFormData.state,
+            zipcode: addFormData.zipcode,
+            cellPhone: addFormData.cellPhone,
+            homePhone: addFormData.homePhone
+        };
+
+        const newContacts = [...contacts, newContact];
+        setContacts(newContacts);
+    };
 
     return (
         <div className="roster-container">
@@ -40,62 +84,71 @@ const Roster = () => {
                 </tbody>
             </table>
             <h2> Add Member</h2>
-            <form>
+            <form className="form-container" onSubmit={handleAddFormSubmit}>
                 <input 
                 type='text' 
-                name="Member Name (LN, FN)"
+                name="member"
                 required="required"
-                placeholder="Enter Members Name"
+                placeholder="Enter Name (LN,FN)"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="Status"
+                name="status"
                 required="required"
                 placeholder="Enter Current Status"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="Mailing Address"
+                name="mailingAddress"
                 required="required"
                 placeholder="Enter Mailing Address"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="Physical Address"
+                name="physicalAddress"
                 required="required"
                 placeholder="Enter Physical Address"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="City"
+                name="city"
                 required="required"
                 placeholder="Enter City"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="State"
+                name="state"
                 required="required"
                 placeholder="Enter State"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="Zipcode"
+                name="zipcode"
                 required="required"
                 placeholder="Enter Zipcode"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="Cell Phone"
+                name="cellPhone"
                 required="required"
                 placeholder="Enter Cell Phone"
+                onChange={handleAddFormChange}
                 />
                 <input 
                 type='text' 
-                name="Home Phone"
+                name="homePhone"
                 required="required"
                 placeholder="Enter Home Phone"
+                onChange={handleAddFormChange}
                 />
-
+                <button type="submit">Add Member</button>
             </form>
         </div>
     )

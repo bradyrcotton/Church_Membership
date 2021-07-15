@@ -28,7 +28,7 @@
   
   form {
     display: flex;
-    gap: 5px;
+    gap: 8px;
   }
   
   form td:last-child {
@@ -37,5 +37,7 @@
   }
   
   form * {
-    font-size: 28px;
+    font-size: 12px;
   }
+
+  
