@@ -1,6 +1,10 @@
 import React from 'react';
 
-const EditableRow = ({ editFormData, handleEditFormChange }) => {
+const EditableRow = ({ 
+    editFormData, 
+    handleEditFormChange, 
+    handleCancelClick   
+}) => {
     return (
         <tr>
             <td>
@@ -11,7 +15,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Name (LN,FN)"
                     value={editFormData.member}
                     onChange={handleEditFormChange}
-                ></input>           
+                    ></input>           
             </td>
             <td>
                 <input 
@@ -21,7 +25,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Current Status"
                     value={editFormData.status}
                     onChange={handleEditFormChange}
-                ></input> 
+                    ></input> 
             </td>
             <td>
                 <input 
@@ -31,7 +35,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Mailing Address"
                     value={editFormData.mailingAddress}
                     onChange={handleEditFormChange}
-                ></input> 
+                    ></input> 
             </td>
             <td>
                 <input 
@@ -41,7 +45,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Physical Address"
                     value={editFormData.physicalAddress}
                     onChange={handleEditFormChange}
-                ></input>
+                    ></input>
             </td>
             <td>
                 <input 
@@ -51,7 +55,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter City"
                     value={editFormData.city}
                     onChange={handleEditFormChange}
-                ></input>
+                    ></input>
             </td>
             <td>
                 <input 
@@ -61,7 +65,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter State"
                     value={editFormData.state}
                     onChange={handleEditFormChange}
-                ></input>
+                    ></input>
             </td>
             <td>
                 <input 
@@ -71,7 +75,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Zipcode"
                     value={editFormData.zipcode}
                     onChange={handleEditFormChange}
-                ></input>
+                    ></input>
             </td>
             <td>
                 <input 
@@ -81,7 +85,7 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Cell Phone"
                     value={editFormData.cellPhone}
                     onChange={handleEditFormChange}
-                ></input>
+                    ></input>
             </td>
             <td>
                 <input 
@@ -91,13 +95,15 @@ const EditableRow = ({ editFormData, handleEditFormChange }) => {
                     placeholder="Enter Home Phone"
                     value={editFormData.homePhone}
                     onChange={handleEditFormChange}
-                ></input>
+                    ></input>
             </td>
             <td>
                 <button type="submit">Save</button>
+                <button type="button" onClick={handleCancelClick}>Cancel</button>
             </td>
         </tr>
     );
 };
+
 
 export default EditableRow;

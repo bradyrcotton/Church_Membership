@@ -122,7 +122,21 @@ const App= () => {
         }
 
         setEditFormData(formValues);
-    }
+    };
+
+    const handleCancelClick = () => {
+        setEditContactId(null);
+    };
+
+    const handleDeleteClick = (contactId) => {
+        const newContacts = [...contacts];
+
+        const index = contacts.findIndex((contact) => contact.id === contactId);
+
+        newContacts.splice(index, 1);
+
+        setContacts(newContacts);
+    };
 
     return (
         <div className="roster-container">
@@ -148,11 +162,14 @@ const App= () => {
                                 {editContactId === contact.id ? (
                                     <EditableRow 
                                     editFormData={editFormData} 
-                                    handleEditFormChange={handleEditFormChange} /> 
+                                    handleEditFormChange={handleEditFormChange}
+                                    handleCancelClick={handleCancelClick} /> 
                                 ) : (
                                 <ReadOnlyRow 
                                 contact={contact} 
-                                handleEditClick={handleEditClick}/>
+                                handleEditClick={handleEditClick}
+                                handleDeleteClick={handleDeleteClick}
+                                />
                                 )}       
                             </Fragment>
                         ))}                                 
