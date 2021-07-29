@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "member": "Cotton, Brady",
+        "status": "Member",
+        "mailingAddress": "316 Madison 2550",
+        "physicalAddress": "Same",
+        "city": "Huntsville",
+        "state": "AR",
+        "zipcode": "72740",
+        "cellPhone": "479-981-6638",
+        "homePhone": "Same"
+    },
+    {
+        "id": 2,
+        "member": "Cotton, Kathy",
+        "status": "Member",
+        "mailingAddress": "PO Box 1341",
+        "physicalAddress": "194 Madison 2550",
+        "city": "Huntsville",
+        "state": "AR",
+        "zipcode": "72740",
+        "cellPhone": "479-981-0554",
+        "homePhone": "Same"
+    },
+    {
+        "id": 3,
+        "member": "Cotton, Leanna",
+        "status": "Member",
+        "mailingAddress": "316 Madison 2550",
+        "physicalAddress": "Same",
+        "city": "Huntsville",
+        "state": "AR",
+        "zipcode": "72740",
+        "cellPhone": "479-381-9087",
+        "homePhone": "Same"
+    }
+]
