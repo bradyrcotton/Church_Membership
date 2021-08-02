@@ -139,7 +139,9 @@ const App= () => {
     };
 
     return (
+        
         <div className="roster-container">
+            <h1>Calvary Baptist Church Membership</h1>
             <form onSubmit={handleEditFormSubmit}>
                 <table>
                     <thead>
